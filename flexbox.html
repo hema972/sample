@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: skyblue;
+            display: flex; /*row wise*/
+            height:100vh; /*adjust to phone or laptop vw(view port width) for width and vh (view port height) for height*/
+            /*flex-direction: row-reverse;     /*it works when display flex is given*/
+            /*flex-direction: column-reverse;  /*it works when display flex is given*/
+            /*flex-direction: row;               /*it works when display flex is given*/
+            /*flex-direction : column;*/        /*it works when display flex is given*/
+            justify-content: space-between; /*must display flex,left to right */
+            align-items:center;         /*must display flex,arrange items in top to bottom*/
+/*for align items: center , end , top*/
+        }
+        .container .box{
+            height: 140px;
+            width: 160px;
+            background-color: orange;
+            border:3px solid pink;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox example</h1>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+
+    
+</body>
+</html>

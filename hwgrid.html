@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gridcon{
+            display: grid;
+            grid-template-columns: 50px 50px 50px 50px 50px;
+/*we have 6 boxes we given 3pxs for col so 3 columns created and boxes can be adjusted in 3 cols as 12 34 56 in 2 rows*/
+            grid-template-rows: 50px 50px 50px 50px;
+            gap:5px;
+
+        }
+        #box1
+        {
+            grid-column-start: 1; /*start=1 to end<4=3*/
+            grid-column-end:6;   /*occupies one col entirely*/
+            padding:10px 0px 5px 0px;
+            /*background-color: rgb(31, 251, 101);*/
+        }
+        #box2{
+            grid-row-start:2;
+            grid-row-end:4;
+            padding:40px 0px 0px 0px;
+            /*background-color: rgb(31, 251, 101);*/
+        }
+        #box3{
+            grid-column-start:2;
+            grid-column-end:6;
+            padding:10px 0px 0px 0px;
+            /*background-color: rgb(31, 251, 101);*/
+        }
+        #footbar{
+            grid-column-start:1;
+            grid-column-end:6;
+           padding:10px 0px 0px 0px;
+          /* background-color: rgb(31, 251, 101);*/
+        }
+        #box4{
+            grid-column-start:2;
+            grid-column-end:4;
+            padding:10px 0px 0px 0px;
+           /* background-color: rgb(31, 251, 101);*/
+        }
+        #box5
+        {
+            grid-column-start:4;
+            grid-column-end:6;
+            padding:10px 0px 0px 0px;
+            /*background-color: rgb(251, 31, 148);*/
+
+        }
+        .gridcon .box{
+            border: solid red;
+            text-align: center;
+            background-color: rgb(31, 251, 101);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gridcon">
+    <div class="box" id="box1">Header</div>
+    <div class="box" id="box2">slidebar</div>
+    <div class="box" id="box3">content1</div>
+    <div class="box" id="box4">content2</div>
+    <div class="box" id="box5">contant3</div>
+    <div class="box" id="footbar">footbar</div>
+    </div>
+    
+</body>
+</html>
