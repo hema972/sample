@@ -1,24 +1,22 @@
 const nodemailer = require("nodemailer");
 
-const sendEmail = async (email) => {
+const sendEmail = async (toEmail) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
+    }
+  });
 
-const transporter = nodemailer.createTransport({
-service: "gmail",
-auth: {
-user: "yourgmail@gmail.com",
-pass: "your_app_password"
-}
-});
+  const mailOptions = {
+    from: process.env.GMAIL_USER,
+    to: toEmail,
+    subject: "Registration Successful",
+    text: "Thank you for registering in our website!"
+  };
 
-const mailOptions = {
-from: "yourgmail@gmail.com",
-to: email,
-subject: "Registration Successful",
-text: "Thank you for registering in our application"
-};
-
-await transporter.sendMail(mailOptions);
-
+  await transporter.sendMail(mailOptions);
 };
 
 module.exports = sendEmail;
