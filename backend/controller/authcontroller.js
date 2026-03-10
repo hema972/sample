@@ -16,7 +16,8 @@ exports.register=async(req,res)=>{
             email,
             password:hashedPassword
         })
-        await Sendemail(email)  //to send mails to user
+        await Sendemail(email).catch(err => console.log("Email error:", err.message));
+  //to send mails to user
         res.status(201).json({msg:"User registered successfully",user})
     } catch (error) {
        console.log(error) 
