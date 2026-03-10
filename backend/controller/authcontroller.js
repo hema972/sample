@@ -1,10 +1,11 @@
 const User=require("../models/user")
 const bcrypt=require("bcryptjs")
 const jwt=require("jsonwebtoken")
-const sendEmail = require("../utils/Sendemail");
+const Sendemail = require("../utils/Sendemail");
 exports.register=async(req,res)=>{
     try {
         const {name,email,password}=req.body
+        email = email.toLowerCase();
         const existingUser=await User.findOne({email})
         if(existingUser){
             return res.status(400).json({msg:"User already existing"})
