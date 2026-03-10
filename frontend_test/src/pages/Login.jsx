@@ -20,8 +20,12 @@ password
 }
 );
 
+// ✅ store token
+localStorage.setItem("token", res.data.token);
+
 alert("Login Successful");
 
+console.log("Token:", res.data.token);
 console.log(res.data);
 
 }catch(err){

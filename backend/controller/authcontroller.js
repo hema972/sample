@@ -1,6 +1,7 @@
 const User=require("../models/user")
 const bcrypt=require("bcryptjs")
 const jwt=require("jsonwebtoken")
+const sendEmail = require("../utils/Sendemail");
 exports.register=async(req,res)=>{
     try {
         const {name,email,password}=req.body
@@ -14,6 +15,7 @@ exports.register=async(req,res)=>{
             email,
             password:hashedPassword
         })
+        await Sendemail(email)  //to send mails to user
         res.status(201).json({msg:"User registered successfully",user})
     } catch (error) {
        console.log(error) 

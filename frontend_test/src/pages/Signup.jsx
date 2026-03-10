@@ -20,7 +20,7 @@ password
 }
 );
 
-alert("User Registered Successfully");
+alert("User Registered Successfully.Check your email");
 console.log(res.data);
 
 }catch(err){
