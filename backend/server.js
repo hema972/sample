@@ -5,7 +5,7 @@ const dotenv=require('dotenv')
 dotenv.config()
 const connectDB=require('./config/DB')
 app.use(express.json())
-
+app.use(cors())
 connectDB()
 app.use('/api/auth',require("./routes/authrouters"))
 app.use('/api/task', require("./routes/taskroutes")) 
