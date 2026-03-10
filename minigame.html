@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Click Speed Game ⚡</h1>
+<h2 id="timer">Time: 5</h2>
+<h2 id="score">Score: 0</h2>
+<button id="btn">Click Me Fast!</button>
+<button id="start">Start Game</button>
+<script>
+    let btn = document.getElementById("btn");
+let startBtn = document.getElementById("start");
+let scoreText = document.getElementById("score");
+let timerText = document.getElementById("timer");
+
+let score = 0;
+let timeLeft = 5;
+let gameActive = false;
+
+startBtn.addEventListener("click", () => {
+    score = 0;
+    timeLeft = 5;
+    gameActive = true;
+    scoreText.textContent = "Score: 0";
+    timerText.textContent = "Time: 5";
+
+    let timer = setInterval(() => {
+        timeLeft--;
+        timerText.textContent = "Time: " + timeLeft;
+
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            gameActive = false;
+            alert("Game Over! Your Score: " + score);
+        }
+    }, 1000);
+});
+
+btn.addEventListener("click", () => {
+    if (gameActive) {
+        score++;
+        scoreText.textContent = "Score: " + score;
+    }
+});
+</script>
+</body>
+</html>

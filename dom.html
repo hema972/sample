@@ -1,0 +1,54 @@
+<!--DOM = Document Object Model
+It is a programming interface that allows JavaScript to interact with HTML.
+In simple words:
+DOM converts your HTML page into a JavaScript object.
+Without DOM → Websites would be static.
+With DOM → Websites become interactive.
+DOM is a tree-like object representation of an HTML document that allows JavaScript to dynamically access and modify webpage content.
+Examples:
+Form validation
+Button click changes text
+Toggle dark mode
+Add items to cart
+
+document, document.body, document.getElementById()
+Are these DOM or JavaScript?
+They are DOM objects provided by the browser,
+but we access them using JavaScript.
+So:
+👉 DOM is NOT JavaScript.
+👉 DOM is a Web API.
+👉 JavaScript uses it.
+DOM is created by the browser when it loads HTML.
+The browser gives JavaScript access to it through:document-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h">This is hema</h1>
+    <button id="btn">Click Me</button>
+<!--addEventListener() is a DOM method used to attach an event to an HTML element.
+It tells the browser:
+“When this event happens, run this function.”
+element.addEventListener("event", function);
+element → the HTML element
+"event" → type of event (click, input, etc.)
+function → what should run-->
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+        document.write("Button clicked!");
+        });
+                     //or
+        document.getElementById('btn').addEventListener('click',()=>{
+            alert('clicked')
+        }
+    );
+    </script>
+</body>
+</html>

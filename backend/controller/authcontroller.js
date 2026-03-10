@@ -1,0 +1,45 @@
+const User=require("../models/User")
+const bcrypt=require("bcryptjs")
+const jwt=require("jsonwebtoken")
+exports.register=async(req,res)=>{
+    try {
+        const {name,email,password}=req.body
+        const existingUser=await User.findOne({email})
+        if(existingUser){
+            return res.status(400).json({msg:"User already existing"})
+        }
+        const hashedPassword=await bcrypt.hash(password,10)
+        const user=await User.create({
+            name,
+            email,
+            password:hashedPassword
+        })
+        res.status(201).json({msg:"User registered successfully",user})
+    } catch (error) {
+       console.log(error) 
+    }
+}
+exports.login=async(req,res)=>{
+    try {
+        const {email,password}=req.body
+        const user=await User.findOne({email})
+        if(!user){
+            return res.status(400).json({msg:"user not registered"})
+        }
+        const isMatch=await bcrypt.compare(password,user.password)
+        if(!isMatch){
+            return res.status(400).json({msg:"credentials are wrong"})
+        }
+        const token=jwt.sign({id:user._id,role:user.role},process.env.JWT_SECRET,{expiresIn:"1d"})
+/*jwt.sign(payload, secretKey, options) JWT is used for authentication.
+where payload    :- {id:user._id, role:user.role}
+      secret key :- process.env.JWT_SECRET (This is the secret password used to sign the token.)
+      options    :- {expiresIn:"1d"} (This means: Token expires in 1 day. After 1 day → user must login again.)
+                 (ex:-"1d","2h","4m")
+The generated JWT is stored in the variable token (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...)
+*/
+        res.send({token}) //This sends the token to the client (for example Postman or your frontend).
+    } catch (error) {
+        console.log(error);    
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Top Movies</title>
+
+<style>
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Background image */
+.background{
+    background-image: url("https://bingeddata.s3.amazonaws.com/uploads/2020/05/Top-Must-Watch-Telugu-Movies-Amazon-Prime-Video.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Dark overlay to reduce highlight */
+.background::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);   /* Increase opacity */
+}
+
+/* Content section */
+.content{
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+}
+
+/* Text visibility */
+h1, h2, p{
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Movie section */
+.movie{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* Movie posters */
+.movie img{
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* Highlight posters on hover */
+.movie img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255,255,255,1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="content">
+
+        <h1>🎬 Top Movies</h1>
+        <h2>Watch Online</h2>
+        <p>Click on any movie poster below</p>
+
+        <div class="movie">
+
+            <a href="https://youtu.be/C12WRs6LiQs" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvC8ku7cE_hMcVPX7lkKxPhQPrB2TpWoFaWA&s">
+            </a>
+
+            <a href="https://youtu.be/L44Od_q0rUc" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Baahubali_The_Beginning_poster.jpg/250px-Baahubali_The_Beginning_poster.jpg">
+            </a>
+
+            <a href="https://youtu.be/60MDB0jEW-g" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ChUhQpSTFGEo3oU_7i0js7z_g8LpSOcF8A&s">
+            </a>
+
+            <a href="https://youtu.be/6kelTocUsio" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYqxTiRuG9-II9DaK0EvpWuDn-T-in4iQz1A&s">
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

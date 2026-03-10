@@ -47,5 +47,5 @@ console.log(5-'5'); //no type casting other than + all operators are arthemetic 
 console.log(5=='5');//check values 5==5 so true
 console.log(5==='5'); //checks datatypes int===string so wrong
 
-let arr=[1,'new',2,'3'] //in js different datatypes can be possible
+let arr=[1,'new',2,'3'] //in js different datatypes can be possible in array
 console.log(arr);
