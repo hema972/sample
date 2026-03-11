@@ -21,7 +21,12 @@ exports.register = async (req, res) => {
         });
 
         // ✅ corrected: call sendEmail exactly as imported (case-sensitive)
-        sendEmail(email).catch(err => console.log("Email error:", err.message));
+       try {
+    await sendEmail(email);
+    console.log("Email sent successfully");
+} catch (mailError) {
+    console.log("Email sending failed:", mailError);
+}
         // to send mails to user
 
         // ✅ safe response: avoid sending password
