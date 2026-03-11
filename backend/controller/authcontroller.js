@@ -5,7 +5,7 @@ const sendEmail = require("../utils/sendEmail"); // ✅ import name matches file
 
 exports.register = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        let { name, email, password } = req.body;
         email = email.toLowerCase();
 
         const existingUser = await User.findOne({ email });

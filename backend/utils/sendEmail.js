@@ -2,16 +2,16 @@ const nodemailer = require("nodemailer");
 
 const sendEmail = async (toEmail) => {
   const transporter = nodemailer.createTransport({
-    service: "gmail",   // or any other email service
+    service: "gmail",
     auth: {
-      user: "yourgmail@gmail.com",      // your email
-      pass: "your_app_password"         // Gmail App Password or API key
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
     }
   });
 
   const mailOptions = {
-    from: "yourgmail@gmail.com",
-    to: toEmail,               // ✅ user email from form
+    from: process.env.GMAIL_USER,
+    to: toEmail,
     subject: "Registration Successful",
     text: "Thank you for registering in our website!"
   };
