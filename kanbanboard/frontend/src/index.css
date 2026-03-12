@@ -1,0 +1,12 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic body styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+}
